@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import Logo from '../assets/images/logo.png';
+
 import {
   FaHome,
   FaPhoneAlt,
@@ -48,7 +50,7 @@ const Layout = () => {
     <div className="flex h-screen bg-gray-100">
       <aside className="w-64 bg-[#F8FAFC] shadow-md flex flex-col">
         <div className="p-6">
-          <img src="/subssum-logo.png" alt="Subssum" className="h-8" />
+          <img src={Logo} alt="Subssum" className="h-8" />
         </div>
         <nav className="flex-grow">
           {sidebarItems.map((item) => (
