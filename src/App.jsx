@@ -1,13 +1,12 @@
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './Router';
+
 import './App.css';
+import './index.css';
 
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline bg-red-600">
-        Subssum Project
-      </h1>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
