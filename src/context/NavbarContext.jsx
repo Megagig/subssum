@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 //create the context
 const NavbarContext = createContext();
@@ -19,5 +19,5 @@ export const NavbarProvider = ({ children }) => {
 
 //custom hook to use the NavbarContext
 export const useNavbarContext = () => {
-  return useContext(NavbarContext);
+  return React.useContext(NavbarContext);
 };

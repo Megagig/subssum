@@ -14,6 +14,7 @@ import {
   FaSignOutAlt,
 } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
+import Header from '../components/Header';
 
 const sidebarItems = [
   { name: 'Dashboard', icon: FaHome, path: '/' },
@@ -89,6 +90,8 @@ const Layout = () => {
         </div>
       </aside>
       <main className="flex-1 p-8">
+        <Header />
+
         <Outlet />
       </main>
     </div>
