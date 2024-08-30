@@ -1,71 +1,97 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import Logo from '../assets/images/logo.png';
 
 import {
-  HomeIcon,
-  PhoneIcon,
-  WifiIcon,
-  DesktopComputerIcon,
-  LightningBoltIcon,
-  CashIcon,
-  ClockIcon,
-  SupportIcon,
-} from '@heroicons/react/outline';
+  FaHome,
+  FaPhoneAlt,
+  FaWifi,
+  FaTv,
+  FaBolt,
+  FaExchangeAlt,
+  FaHistory,
+  FaQuestionCircle,
+  FaSignOutAlt,
+} from 'react-icons/fa';
+import { IoIosArrowDown } from 'react-icons/io';
+import Header from '../components/Header';
 
-export const sidebarItems = [
-  { name: 'Dashboard', icon: HomeIcon, path: '/' },
-  { name: 'Buy Airtime', icon: PhoneIcon, path: '/buy-airtime' },
-  { name: 'Buy Data', icon: WifiIcon, path: '/buy-data' },
+const sidebarItems = [
+  { name: 'Dashboard', icon: FaHome, path: '/' },
+  {
+    name: 'Buy Airtime',
+    icon: FaPhoneAlt,
+    path: '/buy-airtime',
+    hasSubmenu: true,
+  },
+  { name: 'Buy Data', icon: FaWifi, path: '/buy-data', hasSubmenu: true },
   {
     name: 'TV Subscription',
-    icon: DesktopComputerIcon,
+    icon: FaTv,
     path: '/tv-subscription',
+    hasSubmenu: true,
   },
   {
     name: 'Pay Electric Bill',
-    icon: LightningBoltIcon,
+    icon: FaBolt,
     path: '/pay-electric-bill',
+    hasSubmenu: true,
   },
-  { name: 'Airtime to Cash', icon: CashIcon, path: '/airtime-to-cash' },
+  { name: 'Airtime to Cash', icon: FaExchangeAlt, path: '/airtime-to-cash' },
   {
     name: 'Transaction History',
-    icon: ClockIcon,
+    icon: FaHistory,
     path: '/transaction-history',
   },
-  { name: 'Help & Support', icon: SupportIcon, path: '/help-support' },
+  { name: 'Help & Support', icon: FaQuestionCircle, path: '/help-support' },
 ];
 
 const Layout = () => {
   return (
     <div className="flex h-screen bg-gray-100">
-      <aside className="w-64 bg-white shadow-md">
-        <div className="p-4">
-          <img src="/subssum-logo.png" alt="Subssum" className="h-8" />
+      <aside className="w-64 bg-[#F8FAFC] shadow-md flex flex-col">
+        <div className="p-6">
+          <img src={Logo} alt="Subssum" className="h-8" />
         </div>
-        <nav className="mt-8">
+        <nav className="flex-grow">
           {sidebarItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 ${
-                  isActive ? 'bg-subssum-light-blue text-subssum-blue' : ''
+                `flex items-center px-6 py-3 ${
+                  isActive
+                    ? 'bg-[#4169E1] text-white font-medium'
+                    : 'text-[#64748B] hover:bg-[#EFF6FF] hover:text-[#3B82F6]'
                 }`
               }
             >
               <item.icon className="h-5 w-5 mr-3" />
-              {item.name}
+              <span>{item.name}</span>
+              {item.hasSubmenu && <IoIosArrowDown className="ml-auto" />}
             </NavLink>
           ))}
         </nav>
+        <div className="p-6">
+          <NavLink
+            to="/logout"
+            className={({ isActive }) =>
+              `flex items-center ${
+                isActive
+                  ? 'text-[#4169E1] font-medium'
+                  : 'text-[#64748B] hover:text-[#3B82F6]'
+              }`
+            }
+          >
+            <FaSignOutAlt className="h-5 w-5 mr-3" />
+            <span>Log Out</span>
+            <IoIosArrowDown className="ml-auto" />
+          </NavLink>
+        </div>
       </aside>
       <main className="flex-1 p-8">
-        <header className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-semibold">Welcome, Lawal Wahab</h1>
-          <button className="bg-subssum-blue text-white px-4 py-2 rounded-md">
-            Upgrade To Merchant
-          </button>
-        </header>
+        <Header />
+
         <Outlet />
       </main>
     </div>

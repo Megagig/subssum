@@ -9,11 +9,16 @@ import AirtimeToCash from './pages/airtimeToCash/AirtimeToCash';
 import TransactionHistory from './pages/transactionHistory/TransactionHistory';
 import HelpSupport from './pages/helpSupport/HelpSupport';
 import ErrorPage from './pages/errorpage/ErrorPage';
+import { NavbarProvider } from './context/NavbarContext';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: (
+      <NavbarProvider>
+        <Layout />
+      </NavbarProvider>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
