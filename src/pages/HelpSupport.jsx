@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useNavbarContext } from '../contexts/NavbarContext';
 import {
   FaQuestionCircle,
   FaCommentDots,
@@ -9,6 +11,11 @@ import {
 } from 'react-icons/fa';
 
 const HelpSupport = () => {
+  const { setCurrentPage } = useNavbarContext();
+
+  useEffect(() => {
+    setCurrentPage('help-support');
+  }, [setCurrentPage]);
   const supportItems = [
     {
       icon: <FaQuestionCircle />,

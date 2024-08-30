@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { useSidebar } from '../contexts/SidebarContext';
+import { useEffect } from 'react';
+import { useNavbarContext } from '../contexts/NavbarContext';
 
 const LoginPage = () => {
+  const { setCurrentPage } = useNavbarContext();
+
+  useEffect(() => {
+    setCurrentPage('dashboard');
+  }, [setCurrentPage]);
   const { setIsLoginPage } = useSidebar();
   const navigate = useNavigate(); //Create Navigation function
 

@@ -1,23 +1,21 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
-//create the context
 const NavbarContext = createContext();
 
-//export the context: context provider component
-
 export const NavbarProvider = ({ children }) => {
-  const userInfo = {
+  const [userInfo, setUserInfo] = useState({
     name: 'Lawal Wahab',
     notifications: 3,
-  };
+  });
+  const [currentPage, setCurrentPage] = useState('');
+
   return (
-    <NavbarContext.Provider value={{ userInfo }}>
+    <NavbarContext.Provider
+      value={{ userInfo, setUserInfo, currentPage, setCurrentPage }}
+    >
       {children}
     </NavbarContext.Provider>
   );
 };
 
-//custom hook to use the NavbarContext
-export const useNavbarContext = () => {
-  return React.useContext(NavbarContext);
-};
+export const useNavbarContext = () => useContext(NavbarContext);

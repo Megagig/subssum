@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavbarContext } from '../contexts/NavbarContext';
 
 const AirtimeToCash = () => {
+  const { setCurrentPage } = useNavbarContext();
+
+  useEffect(() => {
+    setCurrentPage('airtime-to-cash');
+  }, [setCurrentPage]);
   const [activeTab, setActiveTab] = useState('Fill Info');
   const [network, setNetwork] = useState('Etisalat');
 
