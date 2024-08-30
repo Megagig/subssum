@@ -63,7 +63,7 @@ Subssum is a financial services platform or app focusing on transactions and pay
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](coming soon)
+- [Live Demo Link](https://subssum-tau.vercel.app/)
 
 <!-- GETTING STARTED -->
 
