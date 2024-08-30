@@ -1,9 +1,15 @@
 import React from 'react';
 import { FaBell, FaLock, FaUser } from 'react-icons/fa';
-import { useNavbarContext } from '../context/NavbarContext';
+import { useNavbarContext } from '../contexts/NavbarContext';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { userInfo } = useNavbarContext(); //// Access user info from context
+  const navigate = useNavigate(); // Create navigate function
+
+  const handleProfileClick = () => {
+    navigate('/profile-setting'); // Navigate to ProfileSetting component
+  };
   return (
     <header className="bg-white shadow-sm px-4 py-3 sm:px-6 lg:px-8">
       <div className="flex justify-between items-center">
@@ -23,7 +29,10 @@ const Header = () => {
           <button className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors duration-200">
             <FaLock className="text-gray-500 w-4 h-4" />
           </button>
-          <button className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors duration-200">
+          <button
+            className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors duration-200"
+            onClick={handleProfileClick}
+          >
             <FaUser className="text-gray-500 w-4 h-4" />
           </button>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import CreditCard from '../../assets/images/Credit Card.png';
+import CreditCard from '../assets/images/Credit Card.png';
 
 const Dashboard = () => {
   return (
