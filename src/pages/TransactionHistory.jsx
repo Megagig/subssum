@@ -1,4 +1,6 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useNavbarContext } from '../contexts/NavbarContext';
+
 import {
   FaFilter,
   FaCheckCircle,
@@ -7,6 +9,11 @@ import {
 } from 'react-icons/fa';
 
 const TransactionHistory = () => {
+  const { setCurrentPage } = useNavbarContext();
+
+  useEffect(() => {
+    setCurrentPage('transaction-history');
+  }, [setCurrentPage]);
   const transactions = [
     {
       service: 'Mtn Airtime VTU 09066503949',

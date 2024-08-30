@@ -1,5 +1,6 @@
 import React from 'react';
-import CreditCard from '../../assets/images/Credit Card.png';
+// import CreditCard from '../assets/images/Credit Card.png';
+import Card from '../assets/images/Card.png';
 
 const Dashboard = () => {
   return (
@@ -58,17 +59,7 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 sm:p-6 rounded-lg shadow-md flex items-center gap-20 col-span-1 lg:col-span-2">
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900">Cards</h2>
-            <p className="text-gray-500">You Have No Saved Cards</p>
-          </div>
-          <div>
-            <img
-              src={CreditCard}
-              alt="Cards"
-              className="mx-auto w-full max-w-xs"
-            />
-          </div>
+          <img src={Card} alt="Cards" />
         </div>
       </div>
     </div>
